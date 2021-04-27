@@ -13,25 +13,25 @@
     <title>DataPegawai</title>
 
     <!-- Fontfaces CSS-->
-    <link href="../css/font-face.css" rel="stylesheet" media="all">
-    <link href="../vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/css/font-face.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="../vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="../vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="../vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="../vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="../vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="../css/theme.css" rel="stylesheet" media="all">
+    <link href="<?php echo base_url();?>assets/css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -158,27 +158,19 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="../images/icon/log.png" alt="kominfo" />
+                    <img src="<?php echo base_url();?>assets/images/icon/log.png" alt="kominfo" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="../admin_home.php">
+                            <a class="js-arrow" href="<?php echo base_url();?>users">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="crud_pegawai.php">
+                            <a href="<?php echo base_url();?>pegawai">
                                 <i class="fas fa-table"></i>Pegawai</a>
-                        </li>
-                        <li>
-                            <a href="../user/crud_user.php">
-                                <i class="fas fa-table"></i>User</a>
-                        </li>
-                        <li>
-                            <a href="../laporan/crud_laporan.php">
-                                <i class="fas fa-table"></i>Laporan</a>
                         </li>
                     </ul>
                 </nav>
@@ -227,7 +219,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="../logout.php">
+                                                <a href="<?php echo base_url();?>assets/logout.php">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -247,6 +239,9 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
+                                <div class="card-body">
+                                        <button type="button" class="btn btn-outline-success btn-lg btn-block"> <a href="<?php echo base_url();?>pegawai/add_pegawai" >Tambah Pegawai</a></button>
+                                    </div>
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
@@ -261,29 +256,23 @@
                                         </thead>
                                         <tbody>
                                         <?php 
-                                        include '../koneksi.php';
-                                        $no = 1;
-                                        $data = mysqli_query($koneksi,"select * from pegawai");
-                                        while($d = mysqli_fetch_array($data)){
-                                            ?>
+                                        $no=1; foreach($users as $dataa) { ?>
                                             <tr>
-                                            <td><?php echo $no++; ?></td>
-                                            <td><?php echo $d['nama']; ?></td>
-                                            <td><?php echo $d['jabatan']; ?></td>
-                                            <td><?php echo $d['alamat']; ?></td>
-                                            <td><?php echo $d['email']; ?></td>
-                                            <td><?php echo $d['umur']; ?></td>
+                                            <td><?php echo $no; ?></td>
+                                            <td><?php echo $dataa->nama; ?></td>
+                                            <td><?php echo $dataa->jabatan; ?></td>
+                                            <td><?php echo $dataa->alamat; ?></td>
+                                            <td><?php echo $dataa->email; ?></td>
+                                            <td><?php echo $dataa->umur; ?></td>
                                             <td>
-                                            <button type="button" class="btn btn-primary"><a href="edit_pegawai.php?idpegawai=<?php echo $d['idpegawai']; ?>" style="color:#FFFAFA;"> EDIT</a></button>
-                                            <button type="button" class="btn btn-danger" ><a href="query_hapus.php?idpegawai=<?php echo $d['idpegawai']; ?>" style="color:#FFFAFA;">HAPUS</a></button>
+                                            <button type="button" class="btn btn-primary"><a href="<?php echo base_url();?>pegawai/edit_pegawai/<?php echo $dataa->idpegawai;?>" style="color:#FFFAFA;"> EDIT</a></button>
+                                            <button type="button" class="btn btn-danger" ><a href="" style="color:#FFFAFA;">HAPUS</a></button>
                                             </td>
                                             </tr>
-                                        <?php } ?>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
-                                    <div class="card-body">
-                                        <button type="button" class="btn btn-outline-success btn-lg btn-block"> <a href="tambah_pegawai.php" >Tambah Pegawai</a></button>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -302,28 +291,28 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="../vendor/jquery-3.2.1.min.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="../vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="../vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
-    <script src="../vendor/slick/slick.min.js">
+    <script src="<?php echo base_url();?>assets/vendor/slick/slick.min.js">
     </script>
-    <script src="../vendor/wow/wow.min.js"></script>
-    <script src="../vendor/animsition/animsition.min.js"></script>
-    <script src="../vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    <script src="<?php echo base_url();?>assets/vendor/wow/wow.min.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/animsition/animsition.min.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-    <script src="../vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="../vendor/counter-up/jquery.counterup.min.js">
+    <script src="<?php echo base_url();?>assets/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/counter-up/jquery.counterup.min.js">
     </script>
-    <script src="../vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="../vendor/select2/select2.min.js">
+    <script src="<?php echo base_url();?>assets/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="<?php echo base_url();?>assets/vendor/select2/select2.min.js">
     </script>
 
     <!-- Main JS-->
-    <script src="../js/main.js"></script>
+    <script src="<?php echo base_url();?>assets/js/main.js"></script>
 
 </body>
 

@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>DataPegawai</title>
 
     <!-- Fontfaces CSS-->
     <link href="<?php echo base_url();?>assets/css/font-face.css" rel="stylesheet" media="all">
@@ -37,7 +37,6 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
@@ -89,7 +88,7 @@
                                                     <h5 class="name">
                                                         <a href="#">ADMIN</a>
                                                     </h5>
-                                                    <span class="email">Diskominfo2020</span>
+                                                    <span class="email">diskominfo@batukota.go.id</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -103,7 +102,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="logout.php">
+                                                <a href="<?php echo base_url();?>assets/logout.php">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -114,105 +113,78 @@
                     </div>
                 </div>
             </header>
+            <!-- END HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>                           
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c1">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-account-o"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>125</h2>
-                                                <span>TOTAL PEGAWAI</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart1"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-shopping-cart"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>50</h2>
-                                                <span>USER</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart2"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c3">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-calendar-note"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>2021</h2>
-                                                <span>@smartcity Diskominfo</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart3"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-lg-12">
-                                <h2 class="title-1 m-b-25">Data Pegawai</h2>
-                                <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center">No</th>
-                                                <th class="text-center">Nama</th>
-                                                <th class="text-center">Alamat</th>
-                                                <th class="text-center">Jabatan</th>
-                                                <th class="text-center">Email</th>
-                                                <th class="text-center">Umur</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php 
-                                        $no=1; foreach($users as $dataa) { ?>
-                                            <tr>
-                                            <td><?php echo $no; ?></td>
-                                            <td><?php echo $dataa->nama; ?></td>
-                                            <td><?php echo $dataa->jabatan; ?></td>
-                                            <td><?php echo $dataa->alamat; ?></td>
-                                            <td><?php echo $dataa->email; ?></td>
-                                            <td><?php echo $dataa->umur; ?></td>
-                                            </tr>
-                                        <?php $no++; } ?>
-                                        </tbody>
-                                    </table>
+                                <div class="table-responsive table--no-card m-b-30">
+                                <div class="card">
+                                    <div class="card-header">
+                                        Edit Data
+                                        <strong>Pegawai</strong>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="<?php echo base_url();?>pegawai/tambah" method="post" class="form-horizontal" >
+                                            <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-normal" class=" form-control-label">NAMA</label>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                    <input type="text" id="input-normal" name="nama"  class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-normal" class=" form-control-label">ALAMAT</label>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                    <input type="text" id="input-normal" name="alamat"  class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                        <label for="input-normal" class=" form-control-label">JABATAN</label>
+                                                    </div>
+                                                    <div class="col col-sm-6">
+                                                        <input type="text" id="input-normal" name="jabatan" class="form-control" >
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-normal" class=" form-control-label">EMAIL</label>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                    <input type="text" id="input-normal" name="email"class="form-control" >
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-sm-5">
+                                                    <label for="input-normal" class=" form-control-label">Umur</label>
+                                                </div>
+                                                <div class="col col-sm-6">
+                                                    <input type="text" id="input-normal" name="umur"  class="form-control" >
+                                                </div>
+                                            </div>
+                                        
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary btn-sm" value="SIMPAN" >
+                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                        </button>
+                                        <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> Reset
+                                        </button>
+                                    </div>
+                                </form>
+                                </div>
                                 </div>
                             </div>
-                        
-                            
+                        </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="copyright">
@@ -223,8 +195,6 @@
                     </div>
                 </div>
             </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
         </div>
 
     </div>
@@ -256,4 +226,4 @@
 </body>
 
 </html>
-<!-- end document-->
+
