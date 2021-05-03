@@ -55,7 +55,14 @@ class pegawai extends CI_Controller {
             'email' => $email,
             'umur' => $umur
 			);
+
+		$where = array('pegawai' => $id);
 		$this->pegawai_model->edit_data($id,$data);
+		redirect('pegawai');
+	}
+
+	function hapus($id){
+		$this->pegawai_model->hapus_data($id);
 		redirect('pegawai');
 	}
 

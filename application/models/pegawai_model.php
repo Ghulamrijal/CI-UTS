@@ -30,5 +30,10 @@ class pegawai_model extends CI_Model {
 		$this->db->update('pegawai',$data);
 	}	
 
+    function hapus_data($id){
+        $this->db->where('idpegawai', $id);
+        $this->db->delete('pegawai');
+    }
+
 
 }

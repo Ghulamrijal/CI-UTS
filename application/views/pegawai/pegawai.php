@@ -172,6 +172,10 @@
                             <a href="<?php echo base_url();?>pegawai">
                                 <i class="fas fa-table"></i>Pegawai</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url();?>barang">
+                                <i class="fas fa-table"></i>Data_barang</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -266,7 +270,8 @@
                                             <td><?php echo $dataa->umur; ?></td>
                                             <td>
                                             <button type="button" class="btn btn-primary"><a href="<?php echo base_url();?>pegawai/edit_pegawai/<?php echo $dataa->idpegawai;?>" style="color:#FFFAFA;"> EDIT</a></button>
-                                            <button type="button" class="btn btn-danger" ><a href="" style="color:#FFFAFA;">HAPUS</a></button>
+                                            <button type="button" class="btn btn-danger" ><a onclick="deleteConfirm('<?php echo base_url();?>pegawai/hapus/<?php echo $dataa->idpegawai; ?>')"
+                                                href="#!" style="color:#FFFAFA;"><i class="fas fa-trash" style="color:#FFFAFA;"></i> Hapus</a></button>
                                             </td>
                                             </tr>
                                             <?php } ?>
@@ -287,9 +292,24 @@
                 </div>
             </div>
         </div>
-
     </div>
-
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
+        </div>
+        </div>
+    </div>
+    </div>
     <!-- Jquery JS-->
     <script src="<?php echo base_url();?>assets/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
@@ -313,6 +333,13 @@
 
     <!-- Main JS-->
     <script src="<?php echo base_url();?>assets/js/main.js"></script>
+    <script>function deleteConfirm(url){
+	$('#btn-delete').attr('href', url);
+	$('#deleteModal').modal();
+    }
+    </script>
+
+
 
 </body>
 

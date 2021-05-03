@@ -55,6 +55,10 @@
                             <a href="<?php echo base_url();?>pegawai">
                                 <i class="fas fa-table"></i>Pegawai</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url();?>barang">
+                                <i class="fas fa-table"></i>Data Barang</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -128,12 +132,12 @@
                                         <strong>Pegawai</strong>
                                     </div>
                                     <div class="card-body card-block">
-                                    <?php foreach($user as $u){ ?>
+                                    <?php foreach($pegawai as $u){ ?>
                                         <form action="<?php echo base_url();?>pegawai/edit" method="post" class="form-horizontal" >
                                             <div class="row form-group">
                                                 <div class="col col-sm-5">
                                                     <label for="input-normal" class=" form-control-label">NAMA</label>
-                                                    <input type="hidden" name="idpegawai" value="<?php echo $u->id ?>">
+                                                    <input type="hidden" name="idpegawai" value="<?php echo $u->idpegawai ?>">
                                                 </div>
                                                 <div class="col col-sm-6">
                                                     <input type="text" id="input-normal" name="nama" placeholder="Normal" class="form-control" value="<?php echo $u->nama ?>">

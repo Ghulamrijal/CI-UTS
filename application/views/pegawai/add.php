@@ -55,6 +55,10 @@
                             <a href="<?php echo base_url();?>pegawai">
                                 <i class="fas fa-table"></i>Pegawai</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url();?>barang">
+                                <i class="fas fa-table"></i>Data Barang</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
