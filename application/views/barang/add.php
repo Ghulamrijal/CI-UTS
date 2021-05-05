@@ -51,10 +51,12 @@
                             <a class="js-arrow" href="<?php echo base_url();?>users">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
+                        <?php if ($this->session->userdata('role')=='ADMIN'){ ?>
                         <li>
                             <a href="<?php echo base_url();?>pegawai">
                                 <i class="fas fa-table"></i>Pegawai</a>
                         </li>
+                        <?php } else { ?> <li></li> <?php } ?>
                         <li>
                             <a href="<?php echo base_url();?>barang">
                                 <i class="fas fa-table"></i>Data Barang</a>
@@ -106,7 +108,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="<?php echo base_url();?>assets/logout.php">
+                                                <a href="<?php echo base_url();?>login/logout">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
