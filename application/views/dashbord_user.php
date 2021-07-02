@@ -207,6 +207,11 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="col-lg-12">
+                                <div class="table-responsive table--no-card m-b-30">
+                                <div class="card-body">
+                                        <button type="button" class="btn btn-outline-success btn-lg btn-block"> <a href="<?php echo base_url();?>pegawai/add_pegawai" >CETAK PDF</a></button>
+                                    </div>
                         
                             
                         <div class="row">
