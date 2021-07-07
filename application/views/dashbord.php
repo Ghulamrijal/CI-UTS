@@ -220,7 +220,7 @@
                             <div class="col-lg-12">
                                 <div class="table-responsive table--no-card m-b-30">
                                 <div class="card-body">
-                                        <button type="button" class="btn btn-outline-success btn-lg btn-block"> <a href="<?php echo base_url();?>laporanpdf/export" >CETAK PDF</a></button>
+                                        <button type="button" class="btn btn-outline-success btn-lg btn-block"> <a href="<?php echo base_url();?>laporanpdf" >CETAK PDF</a></button>
                                     </div>
                         
                             
